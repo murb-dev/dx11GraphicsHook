@@ -63,7 +63,7 @@ BOOL WINAPI MainThread(HINSTANCE hInstance) {
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved) {
 	if (dwReason == DLL_PROCESS_ATTACH) {
 		DisableThreadLibraryCalls(hInstance);
-		CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)MainThread, hInstance, 0, NULL);
+		CloseHandle(CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)MainThread, hInstance, 0, NULL));
 	}
 	return TRUE;
 }
