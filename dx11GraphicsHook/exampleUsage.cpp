@@ -53,6 +53,7 @@ BOOL WINAPI MainThread(HINSTANCE hInstance) {
 		std::cout << "Failed to unhook SwapChain Present." << std::endl;
 	};
 
+	fclose(f);
 	FreeConsole();
 	FreeLibraryAndExitThread(hInstance, 0);
 
