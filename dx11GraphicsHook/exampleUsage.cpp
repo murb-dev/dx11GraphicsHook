@@ -24,7 +24,7 @@ BOOL WINAPI MainThread(HINSTANCE hInstance) {
 	std::cout << "Initializing graphics hook..." << std::endl;
 
 	//this must be called in your main thread
-	//initializes grphicsHook and stores the VMT's
+	//initializes graphicsHook and stores the VMT's
 	if (!graphicsHook::init()) {
 		std::cout << "Failed to initialize graphics hook." << std::endl;
 		return FALSE;
@@ -44,8 +44,8 @@ BOOL WINAPI MainThread(HINSTANCE hInstance) {
 		Sleep(100);
 	}
 
-	//WARNING: YOU must manully unkook each function you hooked before exiting the program
-	//ghraphicsHook does not do this for you
+	//WARNING: YOU must manully unhook each function you hooked before exiting the program
+	//graphicsHook does not do this for you
 	//unhooking should be done before a call to FreeLibraryAndExitThread or FreeLibrary
 
 	//example of unhooking the SwapChain Present function

@@ -41,11 +41,8 @@ bool swapVMT(uintptr_t** vmt, int index, void* newFunction, void** originalFunct
 	 if (!VirtualProtect(&vmt[index], sizeof(uintptr_t),  PAGE_EXECUTE_READWRITE, &oldProtect)) {
 		 return false; //failed to change memory protection
 	 }
-
-	 std::cout << "setting new function pointer" << std::endl;
 	 vmt[index] = (uintptr_t*)newFunction;
 
-	 std::cout << "changing function pointer protection back" << std::endl;
 	 VirtualProtect(&vmt[index], sizeof(uintptr_t), oldProtect, &oldProtect);
 
 	 return true;
